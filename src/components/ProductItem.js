@@ -9,13 +9,20 @@ class ProductItem extends Component {
         super(props)
         this.state = {
             hover: false,
-            index: -1
+            index: -1,
+          
+            selectedToCompare:[]
         }
+        this.sendData=this.sendData.bind(this);
     }
+    
 
 
-
-
+    sendData = () => {
+        this.props.triggerCompareList1(this.props.item);
+        
+        
+   }
     render() {
         return (
              <>
@@ -48,14 +55,17 @@ class ProductItem extends Component {
                         <div className=""  style={this.state.index===this.props.key1 ?  {} : {display:'none' }} >
                         <span href="#" className=" badge badge-dark">{this.props.item.brand}</span>
                         </div>
+                 
+
                 </div>
-              
-                  </div>
+                  
                   <button type="button" className="btn btn-secondary btn-lg btn-block focus:outline-none focus:shadow-outline " onClick={this.props.triggerUpdateCart1} >Add to Cart {" "}<i className="fas fa-shopping-cart"></i></button>
 
 
                         </div>
                     </div>
+                    <button type="button" onClick={this.sendData} className="btn btn-info btn-lg focus:outline-none focus:shadow-outline " >Compare List{" "}<i className="fas fa-chevron-circle-up"></i></button>
+                  </div>
     
           </>
         );

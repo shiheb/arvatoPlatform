@@ -5,6 +5,7 @@ import Filters from './components/filters/Filters';
 import NowPlaying from './components/NowPlaying';
 import Navbar from './components/Navbar';
 import InfiniteScroll from 'react-infinite-scroller';
+import ComparisonTable from './components/ComparisonTable';
 
 // TMDB Info/Credentials
 const base_url = "./products.json";
@@ -12,6 +13,7 @@ const base_url = "./products.json";
 
 class App extends Component {
 constructor(props){
+    // Init state
   super(props)
   this.state = {
         items: [],
@@ -29,13 +31,27 @@ constructor(props){
         },  
         slices:  [] ,
         length: 0,
-        cart: 0
+        cart: 0,
+        compareIndice:[],
+        countcompare:false
     };
 
   this.updateCart= this.updateCart.bind(this);
+  this.updateCompareList= this.updateCompareList.bind(this);
+
 }
-    // Init state
-    
+  
+updateCompareList(i){
+  this.setState({compareIndice: [...this.state.compareIndice,i],
+                 countcompare: true
+                 });
+ 
+}
+updateCart (){
+  this.setState({cart: this.state.cart + 1});
+}
+
+
     // Fire API on init
     componentDidMount() {
         // Fetch Genre Data
@@ -49,18 +65,12 @@ constructor(props){
                 isLoaded: true,
                 defaultData: res.data.products //this will store default data
             }, ()=> console.log(this.state.items)));
-        // data().then(data=>{ 
-        //     this.setState({
-        //       items: data.results,
-        //       isLoaded: true,
-        //     });
-        // });
-
+        
        this.setState({ slices: this.state.items.slice(0,12) });
     }
-updateCart (){
-  this.setState({cart: this.state.cart + 1});
-}
+
+
+
 
 fetchMoreData = () => {
       
@@ -112,7 +122,7 @@ fetchMoreData = () => {
   render() {
     return (
       <>
-
+{console.log(this.state.compareIndice)}
 <div className="container">
     <div className="row">
               <div className="col-12 text-center mt-5">
@@ -120,18 +130,20 @@ fetchMoreData = () => {
                   Arvato Platform
                 </h1>
                 <h3 className="text-muted">
-                  An <u>infinite scroll</u> component.
+                Bertelsmann SE & Co. KGaA
                   <br />
                   <small>Best Shopping Platform</small>
                 </h3>
+              
               </div>
           
       </div>
+
       <Navbar cart={this.state.cart}/>
       <div className="row">
-      <div className="col-3 justify-content-center">
+          <div className="col-3 justify-content-center">
           
-          <div className="mt-4 border border-dark rounded">
+              <div className="mt-4 border border-dark rounded">
                 <Filters
                     updateItems={this.updateItems}
                     criteria={this.state.criteria}
@@ -143,6 +155,8 @@ fetchMoreData = () => {
             
             <div className="col-9 pt-2">
                 <div className="container mr-4 px-0 bg-white ">
+                 <ComparisonTable compareIndice = {this.state.compareIndice} showTable= {this.state.countcompare}/>
+
                 <div className="card-columns  pr-3" >
 
               <InfiniteScroll
@@ -155,12 +169,13 @@ fetchMoreData = () => {
                       items={this.state.slices}
                       criteria={this.state.criteria}
                       triggerUpdateCart={this.updateCart}
+                      triggerCompareList= {this.updateCompareList}
                                        />
                   
                   </InfiniteScroll>
             </div>
                   
-                </div>
+              </div>   
             </div>
 
         

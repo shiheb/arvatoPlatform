@@ -5,16 +5,7 @@ import '../scss/products.scss';
 
 class NowPlaying extends Component {
   
-  
-
- 
-
-sendData = () => {
-         this.props.cart(5);
-         console.log(this.props.cart);
-    };
-   
-    // Get criteria for given movie
+      // Get criteria for given movie
     getCriteria = (genreIds, criteria) => {
         
         const filteredGenres = criteria.find(genre => genre.name === genreIds);
@@ -42,6 +33,7 @@ sendData = () => {
                     criteria={this.getCriteria(item.size, this.props.criteria)}
                     key1={i}
                     triggerUpdateCart1={ this.props.triggerUpdateCart}
+                    triggerCompareList1={this.props.triggerCompareList}
                 />
                 ))}
                
