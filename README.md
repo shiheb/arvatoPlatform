@@ -113,4 +113,26 @@ Some frameworks are used to simplify the work and maintain all tasks mentioned t
 Axios (REST API data recupertion) , react-infinite-scroller (endless scrollable window), Bootstrap, reactstrap (responsive aspect, sweet button and hoverable table), node-sass (for SCSS files).
 
 
-After bringing data from the API server (I created a Restfull API for products with some types : size, name, brand, price .. ),
+After bringing data from the API server (I created a Restfull API for products with some types : size, name, brand, price .. ),The json file attached with the project (products.json is comparable to the most classic API of the big e-commerce companies..)
+taking the data from the Json file, we make a slice of 30 first products and take the rest of the products after scrolling with the mouse .. for that I used InfiniteScroll from react-infinite-scroller , easy to implement and effecient . we just have to bind a function to fetch more data for it, this function will take more products after 1000 seconds of scrolling. and it will show a loading message to wait for the next render.
+
+As we have to filter the reuslt after clicking the checkboxes, I added all the brands and the size to my API in the server side to facilitate the access to this data.
+After clicking on a filter, we update the rendered data (we add it the previous state if it exists, otherwise we display alone)
+we update also the slice part (the first data to show and the rest of this data to match with this filter).
+
+After rendering the product , I make it hoverable with some diffrent shadow and other style properties matching its key with the actual index of map function.. I show more details by the same occasion (size and brand)... 
+
+The add to cart button, send the information to a parent of a parent component to increment the counter of the shopping cart.
+All buttons are hoverable and have a different style when we click on it.
+
+when we want to compare some products , I add an other button for every product, and I trriger the creation of responsive hoverable table showing the different important specifications of the that product. The comparison table will only appear after the first click on the "compare to" button.
+
+
+
+
+Here We can visit the platform in real time
+https://arvatoplatform.chihebhmida.now.sh/
+
+
+I hope I covered all the tasks required by this assessment, I confirm that the project needs more enhancements to be nicer to consult.
+I would like to thank you for this opportunity you give to me to show some of my skills.
