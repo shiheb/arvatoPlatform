@@ -1,0 +1,21 @@
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+.noti {
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  border-radius: 2px;
+}
+
+.badgeNot {
+  font-size: 15px;
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  padding: 0px 6px 0px 6px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
