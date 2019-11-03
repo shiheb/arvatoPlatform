@@ -76,3 +76,41 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 #################################################################<br>
+
+##Requirements:
+
+ Build up and style a responsive "product listing page" using HTML, CSS (SASS or LESS) and JavaScript using principles of modern, state-of-the-art webdesign.
+
+ 
+
+Please implement the following features:
+
+- responsiveness
+
+- endless scrolling
+
+- hover functionality on a product providing additional information like color variations etc.
+
+- a filter functionality (e.g. after brand, color and size)
+
+- a product comparison overlay
+
+- a mini-basket functionality
+
+- feel free to use frameworks
+
+- be a bit creative and pay attention to the details
+
+
+Nice examples to lean on are puma.com, adidas.com and nike.com
+
+###############################################################
+##what I have tried to do
+
+As the project require some big lines to be consultable such an infinte scroll window, some filters, tables, API manipulation.
+Some frameworks are used to simplify the work and maintain all tasks mentioned the requirements list of the product owner.
+
+Axios (REST API data recupertion) , react-infinite-scroller (endless scrollable window), Bootstrap, reactstrap (responsive aspect, sweet button and hoverable table), node-sass (for SCSS files).
+
+
+After bringing data from the API server (I created a Restfull API for products with some types : size, name, brand, price .. ),
